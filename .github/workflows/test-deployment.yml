@@ -2,7 +2,7 @@ name: Deploy athena to VM
 on:
   push:
     paths:
-      - main  # or master
+      - test.txt   # Trigger only when test.txt changes
 jobs:
   deploy:
     runs-on: ubuntu-latest
