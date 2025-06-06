@@ -1,4 +1,4 @@
-name: Deploy athena to VM
+name: main deploye
 on:
   push:
     paths:
