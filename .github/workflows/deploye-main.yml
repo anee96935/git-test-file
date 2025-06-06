@@ -1,0 +1,21 @@
+name: Deploy athena to VM
+on:
+  push:
+    paths:
+      - main   # Trigger only when test.txt changes
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Copy test.txt to VM using SCP
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.VM_HOST }}
+        username: ${{ secrets.VM_USER }}
+        key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
+        port: 22                    # change if your SSH uses a different port
+        source: "test.txt"
+        target: ${{ secrets.VM_PATH }}
+        # Optional: verbose: true   # Uncomment for debug logs
