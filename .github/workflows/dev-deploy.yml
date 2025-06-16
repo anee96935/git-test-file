@@ -9,6 +9,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Start Azure VM
+        run: |
+          az vm start --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --name ${{ secrets.AZURE_VM_NAME }}
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -19,6 +28,10 @@ jobs:
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
           port: 22
-          source: "."                # Copy all files (adjust as needed)
+          source: "."                # Copy all files
           target: ${{ secrets.VM_PATH }}
-          # Optional: recursive: true if you want folders too
+
+      - name: Stop Azure VM
+        if: always()   # Ensures VM stops even if deploy fails
+        run: |
+          az vm deallocate --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} --name ${{ secrets.AZURE_VM_NAME }}
