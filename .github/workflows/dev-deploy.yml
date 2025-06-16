@@ -1,4 +1,4 @@
-name: main VM
+name: dev deploye
 
 on:
   push:
