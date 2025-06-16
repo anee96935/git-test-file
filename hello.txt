@@ -1,1 +1,1 @@
-hello test azure VM1
+hello test azure VM
