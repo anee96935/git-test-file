@@ -1,0 +1,44 @@
+# BEGIN WP Hide & Security Enhancer
+<IfModule mod_rewrite.c> 
+RewriteEngine On 
+RewriteBase / 
+#WriteCheckString:1744873731_36063
+RewriteRule ^rewrite_test_1744873731_36063/? /wp-content/plugins/wp-hide-security-enhancer/include/rewrite-confirm.php [L,QSA]
+RewriteRule ^rewrite_test_static_file_1744873731_36063/? /wp-content/plugins/wp-hide-security-enhancer/composer.json [L,QSA]
+
+RewriteRule ^ixeetsoa/(.+) /wp-content/themes/astra/$1 [L,QSA]
+
+RewriteRule ^locmoocm/(.+) /wp-content/plugins/$1 [L,QSA]
+
+RewriteRule ^ystygoas/(.+) /wp-includes/$1 [L,QSA]
+
+RewriteRule ^chipheeh/(.+) /wp-content/uploads/$1 [L,QSA]
+
+RewriteRule ^morensoa.php /wp-comments-post.php [L,QSA]
+
+RewriteRule ^greecmok/(.+) /wp-content/$1 [L,QSA]
+
+RewriteRule ^athena-login.php(.*) /wp-login.php$1 [L,QSA]
+
+RewriteCond %{REQUEST_URI} /athena-admin$
+RewriteRule ^(.*)$ /athena-admin/ [R=301,L]
+RewriteRule ^athena-admin/(.*) /wp-admin/$1 [L,QSA]
+</IfModule> 
+
+# END WP Hide & Security Enhancer
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress

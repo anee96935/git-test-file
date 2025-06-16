@@ -1,0 +1,49 @@
+# BEGIN WP Hide & Security Enhancer
+<IfModule mod_rewrite.c> 
+RewriteEngine On 
+RewriteBase /athena/ 
+#WriteCheckString:1695808984_23767
+RewriteRule ^rewrite_test_1695808984_23767/? /athena/wp-content/plugins/wp-hide-security-enhancer/include/rewrite-confirm.php [L,QSA]
+RewriteRule ^rewrite_test_static_file_1695808984_23767/? /athena/wp-content/plugins/wp-hide-security-enhancer/composer.json [L,QSA]
+
+RewriteRule ^ixeetsoa/(.+) /athena/wp-content/themes/astra/$1 [L,QSA]
+
+RewriteRule ^locmoocm/(.+) /athena/wp-content/plugins/$1 [L,QSA]
+
+RewriteRule ^ystygoas/(.+) /athena/wp-includes/$1 [L,QSA]
+
+RewriteRule ^chipheeh/(.+) /athena/wp-content/uploads/$1 [L,QSA]
+
+RewriteRule ^morensoa.php /athena/wp-comments-post.php [L,QSA]
+
+RewriteRule ^greecmok/(.+) /athena/wp-content/$1 [L,QSA]
+
+RewriteRule ^athena-login.php(.*) /athena/wp-login.php$1 [L,QSA]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^wp-login.php /index.php?wph-throw-404 [L]
+
+RewriteCond %{REQUEST_URI} /athena/athena-admin$
+RewriteRule ^(.*)$ /athena/athena-admin/ [R=301,L]
+RewriteRule ^athena-admin/(.*) /athena/wp-admin/$1 [L,QSA]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^wp-admin(.+) /athena/index.php?wph-throw-404 [L]
+
+</IfModule> 
+
+# END WP Hide & Security Enhancer
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /athena/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /athena/index.php [L]
+</IfModule>
+
+# END WordPress

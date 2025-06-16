@@ -1,0 +1,49 @@
+# BEGIN WP Hide & Security Enhancer
+<IfModule mod_rewrite.c> 
+RewriteEngine On 
+RewriteBase /athena498-live/ 
+#WriteCheckString:1727339633_45968
+RewriteRule ^rewrite_test_1727339633_45968/? /athena498-live/wp-content/plugins/wp-hide-security-enhancer/include/rewrite-confirm.php [L,QSA]
+RewriteRule ^rewrite_test_static_file_1727339633_45968/? /athena498-live/wp-content/plugins/wp-hide-security-enhancer/composer.json [L,QSA]
+
+RewriteRule ^ixeetsoa/(.+) /athena498-live/wp-content/themes/astra/$1 [L,QSA]
+
+RewriteRule ^vecilev/(.+) "/athena498-live/wp-content/plugins/branda-white-labeling/$1" [L,QSA]
+RewriteRule ^locmoocm/(.+) /athena498-live/wp-content/plugins/$1 [L,QSA]
+
+RewriteRule ^ystygoas/(.+) /athena498-live/wp-includes/$1 [L,QSA]
+
+RewriteRule ^chipheeh/(.+) /athena498-live/wp-content/uploads/$1 [L,QSA]
+
+RewriteRule ^morensoa.php /athena498-live/wp-comments-post.php [L,QSA]
+
+RewriteRule ^greecmok/(.+) /athena498-live/wp-content/$1 [L,QSA]
+
+RewriteRule ^athena-login.php(.*) /athena498-live/wp-login.php$1 [L,QSA]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^wp-login.php /index.php?wph-throw-404 [L]
+
+RewriteCond %{REQUEST_URI} /athena498-live/athena-admin$
+RewriteRule ^(.*)$ /athena498-live/athena-admin/ [R=301,L]
+RewriteRule ^athena-admin/(.*) /athena498-live/wp-admin/$1 [L,QSA]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^wp-admin(.+) /athena498-live/index.php?wph-throw-404 [L]
+
+</IfModule> 
+
+# END WP Hide & Security Enhancer
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /athena498-live/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /athena498-live/index.php [L]
+</IfModule>
+
+# END WordPress
